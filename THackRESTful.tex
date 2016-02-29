@@ -1,0 +1,38 @@
+\documentclass{xoblivoir}
+\usepackage{kotex}
+
+\title{Neptunus-THackAThon\\
+\large{RESTful API Reference}}
+\author{Junyoung Clare Jang\\
+\normalsize{v0.0.1}}
+\begin{document}
+\maketitle
+\section{산 정보}
+\begin{enumerate}
+\item \emph{SERVER}/mountains[/?order=string\&start=number\&length=number]
+  
+  order: nameasc \textbar{} namedec \textbar{} heightasc \textbar{} heightdec \textbar{} distanceasc \textbar{} distancedec\\
+  start: 0 \textbar{} any positive numbers\\
+  length: 0 \textbar{} any positive numbers
+  \begin{enumerate}
+  \item GET (Authority: For all)
+    
+    산들에 대한 정보를 돌려준다. Query 가 주어졌다면 order 에 명시된 방식으로 정렬한 뒤, start 번째의 산부터 length 개의 산들에 대한 정보를 Entity Body 로 돌려준다.
+    만일 start 가 서버에 저장된 산들의 개수보다 크다면, 404 Not found 를 돌려준다.
+    만일 start 가 올바르고, length 가 0이거나 서버에 저장된 산들의 개수보다 크다면, start 번째의 산부터 모든 산들에 대한 정보를 Entity Body 로 돌려준다.
+  \end{enumerate}
+
+\item \emph{SERVER}/mountains/\textbf{\#id}
+
+  \#id= any valid id
+  \begin{enumerate}
+    \item GET (Authority: For all)
+      id에 해당하는 산에 대한 정보를 
+    \item POST (Authority: For admin)
+
+    \item PUT (Authority: For admin)
+
+    \item DELETE (Authority: For admin)
+  \end{enumerate}
+\end{enumerate}
+\end{document}
